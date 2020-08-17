@@ -1,7 +1,7 @@
 FROM golang:1.14
 
 # Build Dependencies
-RUN go get gopkg.in/yaml.v2
+RUN go get -u gopkg.in/yaml.v2 github.com/shurcooL/graphql
 
 WORKDIR /go/src/invgen
 COPY ./invgen .
