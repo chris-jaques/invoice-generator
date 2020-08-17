@@ -11,7 +11,6 @@ type Config struct {
 		ApiKey string `yaml:"apiKey"`
 		WorkspaceId string `yaml:"workspaceId"`
 		UserId string `yaml:"userId"`
-		AnotherField string
 	}
 }
 

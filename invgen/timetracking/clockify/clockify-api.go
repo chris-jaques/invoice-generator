@@ -68,7 +68,7 @@ func (c ClockifyAPI) GetTotalHoursWorked(start time.Time, end time.Time) float64
 // 8H
 // 15M
 func parseDuration(duration string) float64 {
-	fmt.Println(duration)
+	// fmt.Println(duration)
 	tmp := strings.Split(duration, "H")
 	hours,_ := strconv.ParseFloat(tmp[0], 64)
 	if len(tmp) > 1 {
