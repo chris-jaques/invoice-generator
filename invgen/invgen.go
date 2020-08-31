@@ -7,6 +7,7 @@ import (
     "time"
     "invgen/timetracking/clockify"
     "invgen/config"
+    "invgen/invoicing/wave"
 )
 
 func main() {
@@ -30,5 +31,10 @@ func main() {
     conf := config.ParseConfig()
     c := clockify.NewClockifyAPI(*conf)
     totalHours := c.GetTotalHoursWorked(startDate, endDate)
-    fmt.Printf("TOTAL HOURS CALCULATED :: %#v\n\n", totalHours)
+    fmt.Printf("Total Hours Calculated :: %#v\n\n", totalHours)
+
+    w := wave.NewWaveAPI(*conf)
+    invoiceDate := fmt.Sprintf("%d-%02d-%02d", endDate.Year(), endDate.Month(), endDate.Day())
+    fmt.Printf("Generating Invoice for %s\n",invoiceDate)
+    w.GenerateInvoice(endDate.Format(invoiceDate), totalHours)
 }

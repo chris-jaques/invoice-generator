@@ -1,4 +1,24 @@
-clockify:
-  apiKey: ABC123XYZ789
-  workspaceId: a11111111111111111111111
-  userId: b22222222222222222222222
+dev:
+  clockify:
+    apiKey: $CLOCKIFY_API_KEY
+    workspaceId: $CLOCKIFY_WORKSPACE_ID
+    userId: $CLOCKIFY_USER_ID
+  wave:
+    accessToken: $WAVE_ACCESS_TOKEN
+    recipientId: $WAVE_RECIPIENT_ID
+    businessId: $WAVE_BUSINESS_ID
+    customerId: $WAVE_CUSTOMER_ID
+    productId: $WAVE_PRODUCT_ID
+  hourlyRate: $HOURLY_RATE
+production:
+  clockify:
+    apiKey: $CLOCKIFY_API_KEY
+    workspaceId: $CLOCKIFY_WORKSPACE_ID
+    userId: $CLOCKIFY_USER_ID
+  wave:
+    accessToken: $WAVE_ACCESS_TOKEN
+    recipientId: $WAVE_RECIPIENT_ID
+    businessId: $WAVE_BUSINESS_ID
+    customerId: $WAVE_CUSTOMER_ID
+    productId: $WAVE_PRODUCT_ID
+  hourlyRate: $HOURLY_RATE

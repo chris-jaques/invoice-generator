@@ -5,3 +5,5 @@ services:
     volumes:
       - ./invgen:/go/src/invgen
       - ./config.yaml:/root/invgen.conf
+    environment:
+      - ENVIRONMENT=dev

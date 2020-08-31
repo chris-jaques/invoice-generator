@@ -12,10 +12,19 @@ type Config struct {
 		WorkspaceId string `yaml:"workspaceId"`
 		UserId string `yaml:"userId"`
 	}
+	Wave struct {
+		AccessToken string `yaml:"accessToken"`
+		RecipientId string `yaml:"recipientId"`
+	}
+	HourlyRate float64
+}
+type FullConfig struct {
+	Dev Config
+	Prod Config
 }
 
 func ParseConfig() *Config{
-	config := &Config{}
+	config := &FullConfig{}
 	file, err := os.Open("/root/invgen.conf")
 	if err != nil {
 		fmt.Printf("Error Opening Config:\n\t%s\n", err)
@@ -31,5 +40,9 @@ func ParseConfig() *Config{
 		fmt.Printf("Error parsing Config:\n\t%s\n", err)
 		os.Exit(1)
 	}
-	return config
+	if os.Getenv("ENVIRONMENT") == "production" {
+		return &config.Prod
+	}
+	fmt.Printf("%s",config.Dev)
+	return &config.Dev
 }
